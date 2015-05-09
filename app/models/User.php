@@ -21,4 +21,6 @@ class User extends Eloquent {
 	 */
 	protected $hidden = array();
 
+    protected $guarded = [];
+
 }

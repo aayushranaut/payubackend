@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::group(['prefix' => 'api/v1'], function(){
+    //Users
+    Route::get('user/{username}', 'UsersController@show');
+
+    //Stocks
+    Route::get('stock/{stock_id}', 'StocksController@show');
+    Route::get('stock/trending', 'StocksController@trending');
+
+    //Portfolio
+    Route::get('portfolio/{username}', 'PortfolioController@show');
 });
