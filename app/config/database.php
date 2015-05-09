@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
+			'database'  => 'payuapi',
 			'username'  => 'root',
 			'password'  => 'aayush',
 			'charset'   => 'utf8',
