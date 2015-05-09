@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTradesTable extends Migration {
+class CreateLeaderboardsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,12 @@ class CreateTradesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('trades', function(Blueprint $table)
+		Schema::create('leaderboards', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->integer('stock_id');
-            $table->integer('quantity');
-			$table->decimal('buy_price', 10);
-			$table->integer('sold');
+			$table->string('avatar_url');
+			$table->float('net_worth');
 			$table->timestamps();
 		});
 	}
@@ -32,7 +30,7 @@ class CreateTradesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('treades');
+		Schema::drop('leaderboards');
 	}
 
 }

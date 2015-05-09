@@ -27,10 +27,11 @@ class StocksController extends \ApiController
         foreach ($newList as $stockName => $stock) {
             $high = DB::table('stock_prices')->where('stock_id', $stock['id'])->max('price');// ->StockPrice::whereStockId($stock['id'])->get();
             $low = DB::table('stock_prices')->where('stock_id', $stock['id'])->min('price');
-
+            $price = DB::table('stock_prices')->where('stock_id', $stock['id'])->orderBy('created_at', 'desc')->first();
 
             $newList[$stockName]['high'] = $high;
             $newList[$stockName]['low'] = $low;
+            $newList[$stockName]['price'] = $price->price;
         }
 
         return $this->respond([

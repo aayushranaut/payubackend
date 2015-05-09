@@ -21,4 +21,8 @@ Route::group(['prefix' => 'api/v1'], function(){
 
     //Portfolio
     Route::get('portfolio/{username}', 'PortfolioController@show');
+
+    //Leaderboards
+    Route::get('leaderboard/net', 'LeaderboardController@net');
+    Route::get('leaderboard/profit', 'LeaderboardController@profit');
 });
