@@ -1,4 +1,4 @@
-<?php namespace Acme\Transformers;
+<?php namespace Acme\Transformer;
 
 abstract class Transformer
 {

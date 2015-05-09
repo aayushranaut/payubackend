@@ -1,8 +1,20 @@
 <?php
 
+use Acme\Transformer\UserTransformer;
+
 class UsersController extends \ApiController {
 
-	/**
+    /**
+     * @var Acme\Transformer\UserTransformer
+     */
+    protected $userTransformer;
+
+    function __construct(UserTransformer $userTransformer)
+    {
+        $this->userTransformer = $userTransformer;
+    }
+
+    /**
 	 * Display the specified resource.
 	 * GET /user/{id}
 	 *
@@ -24,7 +36,7 @@ class UsersController extends \ApiController {
         //Calculate net-worth
 
         return $this->respond([
-            'data' => $user
+            'data' => $this->userTransformer->transform($user)
         ]);
 	}
 

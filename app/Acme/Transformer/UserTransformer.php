@@ -1,9 +1,13 @@
-<?php
+<?php namespace Acme\Transformer;
 
+class UserTransformer extends Transformer {
 
-namespace Acme\Transformers;
-
-
-class UserTransformer {
-
+    public function transform($user)
+    {
+        return [
+            'id'    => $user['id'],
+            'username' => $user['username'],
+            'money'     => (int)$user['money'],
+        ];
+    }
 }

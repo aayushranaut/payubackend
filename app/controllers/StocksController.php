@@ -1,7 +1,18 @@
 <?php
 
+use Acme\Transformer\StocksTransformer;
+
 class StocksController extends \ApiController
 {
+    /**
+     * @var Acme\Transformer\StocksTransformer
+     */
+    protected $stocksTransformer;
+
+    function __construct(StocksTransformer $stocksTransformer)
+    {
+        $this->stocksTransformer = $stocksTransformer;
+    }
 
     public function trending()
     {
@@ -23,7 +34,7 @@ class StocksController extends \ApiController
         }
 
         return $this->respond([
-            'data' => $newList
+            'data' => $this->stocksTransformer->transformCollection($newList)
         ]);
     }
 
@@ -45,9 +56,8 @@ class StocksController extends \ApiController
         $stock['high'] = $high;
         $stock['low'] = $low;
 
-
         return $this->respond([
-            'data'  => $stock
+            'data'  => $this->stocksTransformer->transform($stock)
         ]);
     }
 }
