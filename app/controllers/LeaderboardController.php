@@ -29,7 +29,6 @@ class LeaderboardController extends \ApiController {
             ->orderBy('net', 'desc')
             ->get()->toArray();
 
-        $leaderboard = [];
         return $this->respond([
             'data'  => $this->leaderboardTransformer->transformCollection($net_worth)
         ]);

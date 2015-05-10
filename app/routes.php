@@ -17,6 +17,8 @@ Route::group(['prefix' => 'api/v1'], function(){
 
     //Stocks
     Route::get('stock/trending', 'StocksController@trending');
+    Route::get('stock/buy/{username}/{stockname}/{quantity}', 'StocksController@buy');
+    Route::get('stock/sell/{username}/{trade_id}', 'StocksController@sell');
     Route::get('stock/{stock_id}', 'StocksController@show');
 
     //Portfolio
@@ -25,4 +27,6 @@ Route::group(['prefix' => 'api/v1'], function(){
     //Leaderboards
     Route::get('leaderboard/net', 'LeaderboardController@net');
     Route::get('leaderboard/profit', 'LeaderboardController@profit');
+
+    Route::get('cron/manipulate', 'CronController@manipulate');
 });

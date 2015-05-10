@@ -11,6 +11,7 @@ class StocksTransformer extends Transformer
             'price'     => (float)$stock['price'],
             'high'      => (float)$stock['high'],
             'low'       => (float)$stock['low'],
+            'graph'     => $stock['graph']
         ];
     }
 }
